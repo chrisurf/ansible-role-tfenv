@@ -16,10 +16,10 @@
 - name: Git clone tfenv 
   git:
     repo: 'https://github.com/tfutils/tfenv.git'
-    dest: /home/vagrant/.tfenv
+    dest: ~/.tfenv
 
 - name: Create symbolic link for tfenv
-  shell: sudo ln -s /home/vagrant/.tfenv/bin/* /usr/local/bin
+  shell: sudo ln -s ~/.tfenv/bin/* /usr/local/bin
 
 - name: Install Terraform
   shell: tfenv install {{ terraform_version }} 
