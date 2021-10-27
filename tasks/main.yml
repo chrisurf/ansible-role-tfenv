@@ -1,0 +1,30 @@
+---
+- name: Install packages
+  apt: 
+    name: "{{ packages }}"
+    state: latest
+    dpkg_options: 'force-confold,force-confdef'
+    autoclean: yes
+    autoremove: yes
+    update_cache:  yes
+    cache_valid_time: 3600
+  vars:
+    packages:
+      - git
+      - unzip
+
+- name: Git clone tfenv 
+  git:
+    repo: 'https://github.com/tfutils/tfenv.git'
+    dest: /home/vagrant/.tfenv
+
+- name: Create symbolic link for tfenv
+  shell: sudo ln -s /home/vagrant/.tfenv/bin/* /usr/local/bin
+
+- name: Install Terraform
+  shell: tfenv install {{ terraform_version }} 
+  
+- name: Switch Terraform version
+  shell: sudo tfenv use {{ terraform_version }}
+
+...

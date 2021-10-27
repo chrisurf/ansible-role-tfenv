@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: chrisurf
+  description: Install act.
+  license: "license (BSD, MIT)"
+
+  license: MIT
+
+  platforms:
+    - name: Ubuntu
+      versions:
+      - xenial
+      - bionic
+      - focal
+
+  galaxy_tags:
+  - terraform
